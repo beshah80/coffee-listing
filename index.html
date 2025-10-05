@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="icon" href="resources/favicon.ico" type="image/x-icon" sizes="96x96" />
+
+  <title>Simple Coffee Listing | devChallenges.io</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background: url('./resources/bg-cafe.jpg') no-repeat top center;
+      background-size: auto 300px;
+      background-color: #1c1c1c;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1050px;
+      background-color: #1f1f1f;
+      border-radius: 10px;
+      padding: 40px;
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .header {
+      display: none;
+    }
+
+    .content {
+      padding: 0;
+    }
+
+    h1 {
+      color: #ffffff;
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      color: #a8a8a8;
+      font-size: 1em;
+      margin: 0 auto 30px;
+      max-width: 600px;
+    }
+
+    .buttons a {
+      display: inline-block;
+      padding: 8px 15px;
+      margin: 0 5px;
+      text-decoration: none;
+      color: #ffffff;
+      background-color: #383838;
+      border-radius: 8px;
+      font-size: 0.9em;
+      cursor: pointer;
+      /* Hand cursor for buttons */
+    }
+
+    .buttons a:hover {
+      background-color: #4e4e4e;
+    }
+
+    .buttons .active {
+      background-color: #8c7348;
+      color: #1f1f1f;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .item {
+      background-color: transparent;
+      padding: 0;
+      border-radius: 10px;
+      text-align: left;
+      position: relative;
+      cursor: pointer;
+      /* Hand cursor for items */
+    }
+
+    .item-image-wrapper {
+      position: relative;
+      margin-bottom: 10px;
+    }
+
+    .item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .popular {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: #f4a261;
+      color: #1f1f1f;
+      padding: 3px 10px;
+      border-radius: 15px;
+      font-size: 0.7em;
+      font-weight: bold;
+      text-transform: uppercase;
+      z-index: 10;
+    }
+
+    .title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 5px;
+    }
+
+    h3 {
+      color: #ffffff;
+      font-size: 1em;
+    }
+
+    .price-tag {
+      background-color: #383838;
+      color: #ffffff;
+      font-weight: bold;
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-size: 0.9em;
+    }
+
+    .rating-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .rating {
+      color: #a8a8a8;
+      font-size: 0.9em;
+      display: flex;
+      align-items: center;
+    }
+
+    .rating .star {
+      color: #f4a261;
+      margin-right: 5px;
+    }
+
+    .sold-out {
+      color: #e76f51;
+      font-weight: bold;
+      font-size: 0.9em;
+    }
+
+    .no-rating-votes {
+      margin-left: 5px;
+    }
+
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="content">
+      <h1>Our Collection</h1>
+      <p class="subtitle">Introducing our Coffee Collection, a selection of unique coffees from different roast types
+        and origins,
+        expertly roasted in small batches and shipped fresh weekly.</p>
+      <div class="buttons">
+        <a href="#" class="active">All Products</a>
+        <a href="#">Available Now</a>
+      </div>
+      <div class="grid">
+        <div class="item">
+          <div class="item-image-wrapper">
+            <span class="popular">Popular</span>
+            <img src="resources/cappuccino.png" alt="Cappuccino">
+          </div>
+          <div class="title-row">
+            <h3>Cappuccino</h3>
+            <div class="price-tag">$5.20</div>
+          </div>
+          <div class="rating-row">
+            <div class="rating">
+              <span class="star">★</span> 4.7 <span class="no-rating-votes">(65 votes)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-image-wrapper">
+            <span class="popular">Popular</span>
+            <img src="resources/house_coffee.png" alt="House Coffee">
+          </div>
+          <div class="title-row">
+            <h3>House Coffee</h3>
+            <div class="price-tag">$3.50</div>
+          </div>
+          <div class="rating-row">
+            <div class="rating">
+              <span class="star">★</span> 4.85 <span class="no-rating-votes">(14 votes)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-image-wrapper">
+            <img src="resources/espresso.png" alt="Espresso">
+          </div>
+          <div class="title-row">
+            <h3>Espresso</h3>
+            <div class="price-tag">$2.50</div>
+          </div>
+          <div class="rating-row">
+            <div class="rating">
+              <span class="star">★</span> 4.9 <span class="no-rating-votes">(55 votes)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-image-wrapper">
+            <img src="resources/latte.png" alt="Coffee Latte">
+          </div>
+          <div class="title-row">
+            <h3>Coffee Latte</h3>
+            <div class="price-tag">$4.50</div>
+          </div>
+          <div class="rating-row">
+            <div class="rating">
+              <span class="star">★</span> 5.0 <span class="no-rating-votes">(23 votes)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-image-wrapper">
+            <img src="resources/chocolate_coffee.png" alt="Chocolate Coffee">
+          </div>
+          <div class="title-row">
+            <h3>Chocolate Coffee</h3>
+            <div class="price-tag">$4.00</div>
+          </div>
+          <div class="rating-row">
+            <div class="rating">
+              <span class="star">★</span> 4.65 <span class="no-rating-votes">(122 votes)</span>
+            </div>
+            <div class="sold-out">Sold out</div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-image-wrapper">
+            <img src="resources/valentine_special.png" alt="Valentine Special">
+          </div>
+          <div class="title-row">
+            <h3>Valentine Special</h3>
+            <div class="price-tag">$6.50</div>
+          </div>
+          <div class="rating-row">
+            <div class="rating">
+              <span class="star">★</span> No ratings
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
