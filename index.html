@@ -18,13 +18,17 @@
 
     body {
       min-height: 100vh;
+      /* Background for the top cafe image section */
       background: url('./resources/bg-cafe.jpg') no-repeat top center;
       background-size: auto 300px;
+      /* Main dark background color */
       background-color: #1c1c1c;
       font-family: Arial, sans-serif;
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
+      /* Align to top to ensure spacing above container */
+      padding-top: 150px;
     }
 
     .container {
@@ -34,13 +38,10 @@
       border-radius: 10px;
       padding: 40px;
       text-align: center;
-      margin: 20px 0;
+      margin-bottom: 40px;
     }
 
-    .header {
-      display: none;
-    }
-
+    /* === Header and Title Section Styles === */
     .content {
       padding: 0;
     }
@@ -56,6 +57,7 @@
       font-size: 1em;
       margin: 0 auto 30px;
       max-width: 600px;
+      line-height: 1.5;
     }
 
     .buttons a {
@@ -67,6 +69,7 @@
       background-color: #383838;
       border-radius: 8px;
       font-size: 0.9em;
+      transition: background-color 0.2s;
     }
 
     .buttons a:hover {
@@ -76,12 +79,15 @@
     .buttons .active {
       background-color: #8c7348;
       color: #1f1f1f;
+      font-weight: bold;
     }
 
+    /* === Grid and Item Styles === */
     .grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
+      gap: 30px 40px;
+      /* Adjusted gap */
       margin-top: 40px;
     }
 
@@ -100,7 +106,8 @@
 
     .item img {
       width: 100%;
-      height: 200px;
+      /* Adjusted height to be more proportional to the image */
+      height: 170px;
       object-fit: cover;
       border-radius: 10px;
     }
@@ -168,15 +175,52 @@
       margin-left: 5px;
     }
 
-    @media (max-width: 900px) {
+    /* === Responsive Styles === */
+
+    /* Tablet Layout (max-width: 1024px, matches Tablet_1024px.jpg which is 2 columns) */
+    @media (max-width: 1024px) {
       .grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+      }
+
+      /* Adjust padding for container on smaller screens */
+      .container {
+        padding: 30px;
       }
     }
 
-    @media (max-width: 600px) {
+    /* Mobile Layout (max-width: 412px, matches Mobile_412px.jpg which is 1 column) */
+    @media (max-width: 650px) {
+      body {
+        /* Reduce top padding on mobile */
+        padding-top: 100px;
+        background-size: auto 200px;
+      }
+
+      .container {
+        width: 95%;
+        padding: 20px;
+      }
+
       .grid {
         grid-template-columns: 1fr;
+        gap: 25px;
+        margin-top: 30px;
+      }
+
+      .item img {
+        /* Image height for mobile view is taller */
+        height: 250px;
+      }
+
+      .subtitle {
+        margin-bottom: 20px;
+        padding: 0 10px;
+      }
+
+      .title-row {
+        margin-bottom: 3px;
       }
     }
   </style>
